@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Excel upload</title>
+    <!--<meta http-equiv="Content-Type" content="multipart/form-data; charset=UTF-8" />-->
+</head>
+<body>
+<p th:text="批量导入客户" />
+    <!--<form action="/page/fileUpload" method="post" enctype="multipart/form-data">-->
+        <!--<input th:type="file" name="fileUpload"/>-->
+        <!--<input th:type="submit" th:value="上传文件"/>-->
+    <!--</form>-->
+
+<form enctype="multipart/form-data" th:action="@{/page/fileUpload}"  method="post">
+    <input type="file" name="file"/>
+    <br/>
+    <button type="submit">开始导入</button>
+</form>
+</body>
+</html>

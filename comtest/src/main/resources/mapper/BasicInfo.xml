@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.mapper.SaveBasicInforMapper">
+
+    <insert id="saveYd" parameterType="com.test.domain.Yd">
+        insert into YD(YD,KSSJ,JSSJ) VALUES(#{YD},#{KSSJ},#{JSSJ})
+    </insert>
+
+    <insert id="saveKpj" parameterType="com.test.domain.KPJ" >
+        insert  into  KPJ(KPJBH, ZJBZ, KPJMC, KSRQ)  values(#{KPJBH}, #{ZJBZ}, #{KPJMC}, #{KSRQ})
+    </insert>
+
+    <insert id="savekpzh" parameterType="com.test.domain.KPZH">
+        insert  into  KPZH(NSRSBM, NSRMC, HYFLID, HYFLMC, ZJBZ, KPJID, KPJBH, KPJMC, DJKPBZ, YDFJSJ, KPZLID)
+        values(#{NSRSBM}, #{NSRMC}, #{HYFLID}, #{HYFLMC}, #{ZJBZ}, #{KPJID}, #{KPJBH}, #{KPJMC}, 0, #{YDFJSJ}, #{KPZLID})
+    </insert>
+    <!--<update id="update">
+        update t_user set password = #{password}, email = #{email}, useable = #{useable} where id = #{id}
+    </update>
+
+    <delete id="batchDelete">
+        delete from t_user where id in
+        <foreach collection="array" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+     <delete id="delUsers">
+        delete from t_user where id in
+        <foreach collection="list" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>-->
+
+    <select id="queryForJs" resultType="com.test.domain.Kprjs">
+        select JSID,JSMC,DYXZ from dm_kprjs
+    </select>
+    <select id="queryForMmquestion" resultType="com.test.domain.Mmbhwt">
+        select MMWTID,MMWT from dm_mmbhwt
+    </select>
+    <select id="queryForKpxeOptions" resultType="com.test.domain.DmKpxeOption">
+        select KPZLID,KPXE from DM_KPXE_OPTION
+    </select>
+    <select id="queryKpr" resultType="java.lang.Integer" parameterType="com.test.domain.KPR">
+        select KPRID from kpr where DLM=#{DLM} AND PASSWORD=#{PASSWORD}
+    </select>
+</mapper>

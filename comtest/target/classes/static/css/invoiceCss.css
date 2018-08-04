@@ -1,0 +1,103 @@
+.div_father{
+    background-color:  #FFFFE1;
+    height: 177.8mm;
+    width: 241mm;
+    border-style: solid;
+    position: relative;
+    border-width:1px;
+    font-size: 14px;
+}
+.total{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+._title,._showImg{
+    position:absolute;
+    font-size: 23px;
+    text-align: center;
+    margin-top: 25px;
+    left: 160px;
+    width: 70%;
+    font-family: SimSun;
+    font-weight:  800
+}
+._title{
+    z-index: 1;
+}
+._showImg{
+    z-index: 2;
+    left: 160px;
+    top: -22px;
+}
+._above_row{
+    display: flex;
+    position:0 absolute;
+    width: 100%;
+}
+._code{
+    text-align: right;
+    margin-top: 80px;
+    margin-bottom: 5px;
+    margin-right:30px; 
+}
+._above_row span{
+    color: red;
+    font-size: 22px;
+    font-weight: 800;
+}
+._code span{
+    color: red;
+    font-size: 12pt;
+    font-weight:500;
+}
+._code_right{
+    text-align: right;
+    margin-right:34px;
+}
+_code_middle{
+    text-align: right;
+}
+.div_main{
+    outline-color: black;
+    border-style:solid ;
+    margin: 5px;
+    border-width:2px;
+    border-color: #646464;
+    height: 505px;
+}
+
+.first_div{
+    margin-bottom: 7px;
+}
+.div_detail{
+    border-style:solid ;
+    border-width:2px;
+    border-color: #646464;
+}
+.detail_table{
+     height:266px;
+     width:100%;
+}
+.div_calculate{
+    width: 100%;
+    border-style:solid ;
+    border-width:1px;
+    border-color: #646464;
+    padding-top: 5px;
+    padding-bottom: 10px;
+}
+.div_remark{
+    width: 100%;
+    height: 97px;
+    border-style:solid ;
+    border-width:1px;
+    border-color: #646464;
+}
+.last_div{
+    width: 100%;
+    padding-top: 1px;
+}
+.remark_table{
+    width: 100%;
+    height: 100%;
+}

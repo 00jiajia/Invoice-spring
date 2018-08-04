@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.mapper.FpbMapper">
+    <select id="queryFpbStockList" resultType="com.test.domain.FpbTz">
+      select GPJLID,FPDM,FPHS,FPHZ,FS,GPSJ,DQKYH,JCFS,ZTID,RKSJ,RKYD,XFSJ,JSSJ,QYRQ,SJSJ,HXSJ,KPSJS,KPSJZ,ZPFS,ZPJE,FPFS,TPFS,TPJE,CSZTID
+      from fpb_tz
+    </select>
+    <select id="queryFpbLgList" resultType="com.test.domain.FpbLg">
+      select JLID,FPDM,FPHS,FPHZ,LGSJ,FS,FPSJ,YWBZ from fpb_lg order by FPSJ DESC
+    </select>
+    <insert id="saveFpbLg" parameterType="com.test.domain.FpbLg">
+      INSERT INTO fpb_lg(FPDM,FPHS,FPHZ,LGSJ,FS,FPSJ,YWBZ)
+      VALUES(#{FPDM},#{FPHS},#{FPHZ},#{LGSJ},#{FS},#{FPSJ},#{YWBZ})
+    </insert>
+    <update id="updateFpbTz">
+        update t_user set password = #{password}, email = #{email}, useable = #{useable} where id = #{id}
+    </update>
+    <select id="queryKpzh" parameterType="com.test.domain.KPZH" resultType="com.test.domain.KPZH">
+         select NSRSBM,NSRMC from kpzh order by KHRQ ASC limit 1
+    </select>
+    <select id="queryFpbTz" resultType="com.test.domain.FpbTz">
+
+    </select>
+    <!--<select id="queryById" resultType="com.sam.project.mvc.model.User">
+        SELECT u.id, u.username, u.password, u.email, u.useable, u.addtime, u.logintime, u.loginip FROM t_user u where u.id = #{id}
+    </select>
+
+    <insert id="save">
+        insert into t_user(username, password, email, useable, addtime)
+        values(#{username}, #{password}, #{email}, #{useable}, now())
+    </insert>
+
+    <update id="update">
+        update t_user set password = #{password}, email = #{email}, useable = #{useable} where id = #{id}
+    </update>
+
+    <delete id="batchDelete">
+        delete from t_user where id in
+        <foreach collection="array" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>-->
+
+    <!-- <delete id="delUsers">
+        delete from t_user where id in
+        <foreach collection="list" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete> -->
+</mapper>

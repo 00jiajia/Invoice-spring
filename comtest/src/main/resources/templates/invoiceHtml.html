@@ -1,0 +1,142 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="header">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <!--<link rel="stylesheet" th:href="@{/css/invoiceCss.css}"/>-->
+    <link rel="stylesheet" th:href="@{http://192.168.1.215:8080/css/invoiceCss.css}"/>
+    <script th:src="@{/jquery/jquery-3.3.1.min.js}"></script>
+
+</head>
+<body>
+    <div class="div_father">
+        <div class="total">
+            <div class="_title">上 海 市 国 家 税 务 局 通 用 机 打 发 票</div>
+            <div class="_showImg">
+                <!--<img th:src="@{/img/section.png}" height="82" width="128"/>-->
+                <img th:src="@{http://192.168.1.215:8080/img/section.png}" height="82" width="128"/>
+            </div>
+            <div class="_above_row">
+                <table style="width:100% ">
+                    <tr>
+                        <td style="width:30% "></td>
+                        <td style="width:30% "></td>
+                        <td style="width:30% ">
+                            <div class="_code">发票代码&nbsp;&nbsp;
+                                <span id="invoice_code1">111111111100</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>开票日期: 2018-04-23</div>
+                        </td>
+                        <td>
+                            <div class="_code_middle">行业分类:工业</div>
+                        </td>
+                        <td>
+                            <div class="_code_right">发票号码&nbsp;&nbsp;
+                                <span id="invoice_code2">00000001</span>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="div_main">
+                <div class="first_div">
+                    <table class="first_table">
+                        <tr>
+                            <td style="width: 18%">付款单位(个人)名称:</td>
+                            <td style="width: 52%">
+                                <span>霍尔韦尔（中国）有限公司</span>
+                            </td>
+                            <td style="width: 15%;text-align: right;">纳税人识别号&nbsp;&nbsp;</td>
+                            <td style="width: 15%">
+                                <span>11111111111111</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>收款单位(个人)名称:</td>
+                            <td>
+                                <span>上海阁上汽车租赁有限公司</span>
+                            </td>
+                            <td style="text-align: right;">纳税人识别码&nbsp;&nbsp;</td>
+                            <td>
+                                <span>000000000000000</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+
+                <div class="div_detail">
+                    <table class="detail_table">
+                        <thead>
+                        <tr>
+                            <th style="width:35%;BORDER-RIGHT:1px solid">项目名称</th>
+                            <th style="width:15%;BORDER-RIGHT:1px solid">计量单位</th>
+                            <th style="width:15%;BORDER-RIGHT:1px solid">数量</th>
+                            <th style="width:15%;BORDER-RIGHT:1px solid">单价</th>
+                            <th style="width:20%">金额</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="kpjlmx:${kpjlMxList}">
+                                <td th:text="${kpjlmx.HPMC}" th:style="'BORDER-RIGHT:1px solid'"></td>
+                                <td th:text="${kpjlmx.JLDW}" th:style="'BORDER-RIGHT:1px solid'"></td>
+                                <td th:text="${kpjlmx.SL}" th:style="'BORDER-RIGHT:1px solid;text-align:right'"></td>
+                                <td th:text="${kpjlmx.DJ}" th:style="'BORDER-RIGHT:1px solid;text-align:center'"></td>
+                                <td th:text="${kpjlmx.JE}" th:style="'text-align:right'"></td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+
+                <div class="div_calculate">
+                    <table >
+                        <tr>
+                            <td style="width: 20%">合计人民币（大写）</td>
+                            <td>@伍元整</td>
+                            <td style="width: 50%"></td>
+                            <td>￥5.00</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="div_remark">
+                    <table class="remark_table">
+                        <tr style="height: 100%;">
+                            <td style="width: 3%;border-right: 1px solid;">备注</td>
+                            <td style="width: 65%;">劳斯莱斯</td>
+                            <td style="width: 3%;border-left: 1px solid;text-align:center">机打信息</td>
+                            <td style="border-left: 1px solid;"></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="last_div">
+                    <table class="last_div">
+                        <tr>
+                            <td style="width: 50%">收款单位(个人)名称（章）</td>
+                            <td style="width: 25%">开票人&nbsp;
+                                <span>李四</span>
+                            </td>
+                            <td style="width: 25%">复核人&nbsp;
+                                <span>李四</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script type="text/javascript">
+
+    window.document.addEventListener('message',function(textValue){
+        var str_html="<html>"+window.document.getElementsByTagName("html")[0].innerHTML+"</html>";
+        window.postMessage(str_html);
+    });
+</script>
+</body>
+
+</html>
